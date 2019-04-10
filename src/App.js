@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Button } from 'antd';
+import ClientList from './ClientList/ClientList';
+import ClientData from './clients.json';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ClientEdit from './ClientEdit/ClientEdit';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <Router>
           <div>
-            <Button type="primary" shape="round" icon="download" size='large'>Download</Button>
+            <Route exact path='/' component={ClientList}/>
+            <Route path='/edit_clients' component={ClientEdit}></Route>
           </div>
-        </header>
+        </Router>
       </div>
     );
   }
