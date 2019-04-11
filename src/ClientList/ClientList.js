@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 import { Table } from 'antd';
 import ClientData from '../clients.json';
 
-class ClientList extends Component {
+class ClientListPage extends Component {
     render() {
         const columns = [{
             title: 'ID',
@@ -57,12 +57,14 @@ class ClientList extends Component {
             tags: ['cool', 'teacher'],
           }];
 
+          const pagination = { position: 'none' }
+
         return(
             <div id='clientList'>
-                <Table  columns={columns} dataSource={data} />
+                <Table  columns={columns} dataSource={data} pagination={pagination}/>
             </div>
         )
     }
 }
 
-export default ClientList;
+export default ClientListPage;

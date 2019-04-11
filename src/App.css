@@ -1,11 +1,27 @@
 @import '~antd/dist/antd.css';
 
+
 .App {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	justify-content: center;
 	align-items: center;
-  align-content: stretch;
+	align-content: stretch;
+	
+	background: url(https://images.pexels.com/photos/574283/pexels-photo-574283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+	min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
   
+}
+
+.pageInfo {
+	text-align: center;
+	margin: 20px;
+  color: rgb(69, 154, 252);
+	opacity: 0.7;
+	text-shadow: 0px 1px 1px #000000;
 }

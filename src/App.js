@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import ClientList from './ClientList/ClientList';
 import ClientData from './clients.json';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import ClientEdit from './ClientEdit/ClientEdit';
+import ClientEditPage from './ClientEditPage/ClientEditPage';
+import ClientListPage from './ClientListPage/ClientListPage';
 
 class App extends Component {
   render() {
@@ -11,8 +11,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Route exact path='/' component={ClientList}/>
-            <Route path='/edit_clients' component={ClientEdit}></Route>
+            <Route exact path='/' component={ClientListPage}/>
+            <Route path='/edit_clients' component={ClientEditPage}></Route>
           </div>
         </Router>
       </div>
