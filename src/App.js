@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import ClientData from './clients.json';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import ClientEditPage from './ClientEditPage/ClientEditPage';
-import ClientListPage from './ClientListPage/ClientListPage';
+import ClientEditPage from './components/ClientEditPage/ClientEditPage';
+import ClientListPage from './components/ClientListPage/ClientListPage';
 
 class App extends Component {
   render() {

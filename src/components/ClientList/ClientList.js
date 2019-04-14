@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import { Table } from 'antd';
-import ClientData from '../clients.json';
+import ClientData from '../../clients.json';
 
 class ClientListPage extends Component {
     render() {
