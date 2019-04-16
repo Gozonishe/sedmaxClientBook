@@ -1,70 +1,64 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import { Table } from 'antd';
-import ClientData from '../../clients.json';
+import ClientData from '../../clientsData.json';
+import jsonData from '../../clientsData.json';
+import {setSelectedRowData} from '../../AC/table'
 
-class ClientListPage extends Component {
+class ClientListPage extends React.Component {
+    onRowClickHandler = (record) => {
+      console.log('selected_row: ', record)
+      this.props.setSelectedRowData(record)
+    }
+
     render() {
         const columns = [{
-            title: 'ID',
-            dataIndex: '_id',
-            key: '_id',
+            title: 'id',
+            dataIndex: 'id',
+            key: 'id',
           }, {
             title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-            render: text => <a href="/edit_clients">{text}</a>,
+            dataIndex: 'Name',
+            key: 'Name',
+            render: text => <a href="/edit_clients" onClick={this.onRowClickHandler}>{text}</a>,
           }, {
             title: 'Condition',
-            dataIndex: 'condition',
-            key: 'condition',
+            dataIndex: 'Condition',
+            key: 'Condition',
+            render: v => <p>{v.toString()}</p>
           }, {
             title: 'Email',
-            dataIndex: 'email',
-            key: 'email',
+            dataIndex: 'Email',
+            key: 'Email',
           }, {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Addresses',
+            dataIndex: 'Addresses',
+            key: 'Addresses',
           }, {
             title: 'Action',
             key: 'action',
             render: (text, record) => (
               <span>
-                <a href="/edit_clients"> Edit </a>
+                <a href="/edit_clients" onClick={this.onRowClickHandler}> Edit </a>
               </span>
             ),
           }];
-          
-          const data = [{
-            key: '1',
-            name: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer'],
-          }, {
-            key: '2',
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-            tags: ['loser'],
-          }, {
-            key: '3',
-            name: 'Joe Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-            tags: ['cool', 'teacher'],
-          }];
 
-          const pagination = { position: 'none' }
+        const pagination = { position: 'none' }
 
         return(
             <div id='clientList'>
-                <Table  columns={columns} dataSource={data} pagination={pagination}/>
+                <Table 
+                  columns={columns}
+                  dataSource={jsonData}
+                  pagination={pagination}
+                  // onRow={record => ({onClick: () => this.onRowClickHandler(record)})}
+                />
             </div>
         )
     }
 }
 
-export default ClientListPage;
+export default connect(null, {setSelectedRowData}) (ClientListPage)
