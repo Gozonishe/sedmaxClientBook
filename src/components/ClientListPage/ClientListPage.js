@@ -26,7 +26,7 @@ class ClientListPage extends React.Component {
       title: 'Condition',
       dataIndex: 'Condition',
       key: 'Condition',
-      render: v => <p>{v.toString()}</p>
+      render: v => <span>{v.toString()}</span>
     }, {
       title: 'Email',
       dataIndex: 'Email',
@@ -38,11 +38,7 @@ class ClientListPage extends React.Component {
     }, {
       title: 'Action',
       key: 'action',
-      render: (text, record) => (
-        <span>
-          <a href="/edit_clients"> Edit </a>
-        </span>
-      ),
+      render: text => <Link to={'/edit_clients'}>Edit</Link>,
     }];
 
   const pagination = { position: 'none' }

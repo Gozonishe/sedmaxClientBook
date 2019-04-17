@@ -4,6 +4,8 @@ import { Button } from 'antd';
 import './ClientEditPage.css';
 import ClientTree from '../ClientTree/ClientTree';
 import { Table } from 'antd';
+import { Link } from 'react-router-dom';
+import EditableTable from '../example/exampleTable';
 
 
 class ClientEditPage extends Component {
@@ -21,7 +23,12 @@ class ClientEditPage extends Component {
             {this.renderEditTable()}
 
           </body>
-            <Button className='cancelBtn' type="danger" block href='/'>Cancel</Button>
+            <Button className='cancelBtn' type="danger" block>
+              <Link to={'/'}>Cancel</Link>
+            </Button>
+
+            <EditableTable/>
+
       </div>
     );
   }
@@ -35,12 +42,12 @@ class ClientEditPage extends Component {
       title: 'Name',
       dataIndex: 'Name',
       key: 'Name',
-      render: text => <a href="/edit_clients" onClick={this.onRowClickHandler}>{'ПЕРЕДЕЛАТЬ'}</a>,
+      editable: true,
     }, {
       title: 'Condition',
       dataIndex: 'Condition',
       key: 'Condition',
-      render: v => <p>{v ? 'true' : 'false'}</p>
+      render: v => <span>{v ? 'true' : 'false'}</span>
     }, {
       title: 'Email',
       dataIndex: 'Email',
@@ -54,7 +61,7 @@ class ClientEditPage extends Component {
       key: 'action',
       render: (text, record) => (
         <span>
-          <a href="/edit_clients" onClick={this.onRowClickHandler}> ПЕРЕДЕЛАТЬ </a>
+          <Link to={"/edit_clients"} onClick={this.onRowClickHandler}> Save </Link>
         </span>
       ),
     }];
