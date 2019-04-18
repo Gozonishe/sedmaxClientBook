@@ -1,6 +1,7 @@
 import { Table, Input, Button, Popconfirm, Form, } from 'antd';
 import React, { Component } from 'react';
 import './exampleTable.css';
+import { connect } from 'react-redux';
   
   const FormItem = Form.Item;
   const EditableContext = React.createContext();
@@ -94,24 +95,46 @@ import './exampleTable.css';
     constructor(props) {
       super(props);
       this.columns = [{
-        title: 'name',
-        dataIndex: 'name',
-        width: '30%',
+        title: 'ID',
+        dataIndex: 'id',
+        key: 'id',
+        
+      }, {
+        title: 'Name',
+        dataIndex: 'Name',
+        key: 'Name',
         editable: true,
+        align: 'center'
       }, {
-        title: 'age',
-        dataIndex: 'age',
+        title: 'Condition',
+        dataIndex: 'Condition',
+        key: 'Condition',
+        align: 'center',
+        render: v => <span><select id="menu1" onSelect="...">
+                      <option value="true">true</option>
+                      <option value="false">false</option>
+                    </select></span>
       }, {
-        title: 'address',
-        dataIndex: 'address',
+        title: 'Email',
+        dataIndex: 'Email',
+        key: 'Email',
+        editable: true,
+        align: 'center',
       }, {
-        title: 'operation',
-        dataIndex: 'operation',
+        title: 'Addresses',
+        dataIndex: 'Addresses',
+        key: 'Addresses',
+        editable: true,
+        align: 'center',
+      }, {
+        title: 'Action',
+        dataIndex: 'Action',
+        align: 'center',
         render: (text, record) => (
           this.state.dataSource.length >= 1
             ? (
-              <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
-                <a href="javascript:;">Delete</a>
+              <Popconfirm title="Save Changes?" onConfirm={() => this.handleDelete(record.key)}>
+                <a href="javascript:;">Save</a>
               </Popconfirm>
             ) : null
         ),
@@ -120,15 +143,10 @@ import './exampleTable.css';
       this.state = {
         dataSource: [{
           key: '0',
-          name: 'Edward King 0',
+          Name: 'Edward King 0',
           age: '32',
           address: 'London, Park Lane no. 0',
-        }, {
-          key: '1',
-          name: 'Edward King 1',
-          age: '32',
-          address: 'London, Park Lane no. 1',
-        }],
+        },],
         count: 2,
       };
     }
@@ -172,20 +190,28 @@ import './exampleTable.css';
           }),
         };
       });
+
+      const pagination = { position: 'none' }
+
       return (
         <div>
           <Table
             components={components}
             rowClassName={() => 'editable-row'}
             bordered
-            dataSource={dataSource}
+            dataSource={[this.props.selectedRowData]}
             columns={columns}
+            pagination={pagination}
           />
         </div>
       );
     }
   }
   
-  export default EditableTable;
+  export default connect((state) => {
+    return {
+        selectedRowData: state.table.selectedRowData,
+    }
+  }) (EditableTable);
  
   

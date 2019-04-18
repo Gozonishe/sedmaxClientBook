@@ -14,30 +14,36 @@ class ClientListPage extends React.Component {
 
   render() {
     const columns = [{
-      title: 'id',
+      title: 'ID',
       dataIndex: 'id',
       key: 'id',
+      align: 'center',
     }, {
       title: 'Name',
       dataIndex: 'Name',
       key: 'Name',
+      align: 'center',
       render: text => <Link to={'/edit_clients'}>{text}</Link>,
     }, {
       title: 'Condition',
       dataIndex: 'Condition',
       key: 'Condition',
+      align: 'center',
       render: v => <span>{v.toString()}</span>
     }, {
       title: 'Email',
       dataIndex: 'Email',
       key: 'Email',
+      align: 'center',
     }, {
       title: 'Addresses',
       dataIndex: 'Addresses',
       key: 'Addresses',
+      align: 'center',
     }, {
       title: 'Action',
       key: 'action',
+      align: 'center',
       render: text => <Link to={'/edit_clients'}>Edit</Link>,
     }];
 

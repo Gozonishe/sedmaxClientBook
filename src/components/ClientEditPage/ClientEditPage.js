@@ -7,7 +7,6 @@ import { Table } from 'antd';
 import { Link } from 'react-router-dom';
 import EditableTable from '../example/exampleTable';
 
-
 class ClientEditPage extends Component {
   render() {
     console.log(this.props.selectedRowData)
@@ -18,17 +17,15 @@ class ClientEditPage extends Component {
         </header>
           <body className='mainContent'>
             <ClientTree/>
-            <div className='verticalLine'></div>
 
-            {this.renderEditTable()}
+            {/* <div className='verticalLine'></div> */}
+            {/* {this.renderEditTable()} */}
 
           </body>
+            <EditableTable/>
             <Button className='cancelBtn' type="danger" block>
               <Link to={'/'}>Cancel</Link>
             </Button>
-
-            <EditableTable/>
-
       </div>
     );
   }
@@ -47,7 +44,10 @@ class ClientEditPage extends Component {
       title: 'Condition',
       dataIndex: 'Condition',
       key: 'Condition',
-      render: v => <span>{v ? 'true' : 'false'}</span>
+      render: v => <span><select id="menu1" onSelect="...">
+                          <option value="true">1</option>
+                          <option value="false">2</option>
+                        </select></span>
     }, {
       title: 'Email',
       dataIndex: 'Email',
