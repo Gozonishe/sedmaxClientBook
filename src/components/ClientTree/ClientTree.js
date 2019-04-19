@@ -1,32 +1,58 @@
 import { Tree } from 'antd';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './ClientTree.css';
 
 class ClientTree extends Component {
+
+    onClickCheck = () => {
+            console.log([this.props.selectedRowData])
+        }
+
     render(){
         const { TreeNode } = Tree;
+
+        const { Name, Condition, Email, Addresses, id } = this.props.selectedRowData
+        
+
+
             return(
                 <div className='tree'>
-                <Tree
-                checkable
-                defaultExpandedKeys={['0-0-0', '0-0-1']}
-                defaultSelectedKeys={['0-0-0', '0-0-1']}
-                defaultCheckedKeys={['0-0-0', '0-0-1']}
-                onSelect={this.onSelect}
-                onCheck={this.onCheck}
-            >
-                <TreeNode title="parent 1" key="0-0">
-                <TreeNode title="parent 1-0" key="0-0-0" >
-                    <TreeNode title="leaf" key="0-0-0-0" />
-                    <TreeNode title="leaf" key="0-0-0-1" />
-                </TreeNode>
-                <TreeNode title="parent 1-1" key="0-0-1">
-                    <TreeNode title={<span style={{ color: '#1890ff' }}>sss</span>} key="0-0-1-0" />
-                </TreeNode>
-                </TreeNode>
-            </Tree></div>
+                    <Tree
+                    checkable
+                    defaultExpandedKeys={['0-0-0', '0-0-1']}
+                    defaultSelectedKeys={['0-0-0', '0-0-1']}
+                    defaultCheckedKeys={['0-0-0', '0-0-1']}
+                    onSelect={this.onSelect}
+                    onCheck={this.onCheck}
+                    >
+                        <TreeNode title="Clients" key="0-0">
+                            <TreeNode title={id} key="0-0-0" >
+                                <TreeNode title='Name' key="Name">
+                                    <TreeNode title="Name" key="Name" />
+                                </TreeNode>
+                                <TreeNode title="Condition" key="0-0-0-0">
+                                    <TreeNode title="123" key="0-0-0-1" />
+                                </TreeNode>
+                                <TreeNode title="Email" key="0-0-0-0">
+                                    <TreeNode title="123" key="0-0-0-1" />
+                                </TreeNode>
+                                <TreeNode title="Addresses" key="0-0-0-0">
+                                    <TreeNode title="123" key="0-0-0-1" />
+                                </TreeNode>
+                            </TreeNode>
+                        </TreeNode>
+                    </Tree>
+                    <button onClick={this.onClickCheck}>Name is:{Name}</button>
+                </div>
             )
         }
     }
 
-export default ClientTree;
+
+
+export default connect((state) => {
+    return {
+        selectedRowData: state.table.selectedRowData,
+    }
+  }) (ClientTree);

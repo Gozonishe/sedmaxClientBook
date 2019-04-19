@@ -44,10 +44,12 @@ class ClientEditPage extends Component {
       title: 'Condition',
       dataIndex: 'Condition',
       key: 'Condition',
-      render: v => <span><select id="menu1" onSelect="...">
-                          <option value="true">1</option>
-                          <option value="false">2</option>
-                        </select></span>
+      render: v =><span>
+                    <select id="menu1" onSelect="...">
+                    <option value="true">1</option>
+                    <option value="false">2</option>
+                    </select>
+                  </span>
     }, {
       title: 'Email',
       dataIndex: 'Email',
