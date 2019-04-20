@@ -14,7 +14,7 @@ class ClientTree extends Component {
 
         const { Name, Condition, Email, Addresses, id } = this.props.selectedRowData
         
-
+        let stringCondition = Condition === undefined ? '' : Condition.toString()
 
             return(
                 <div className='tree'>
@@ -27,18 +27,18 @@ class ClientTree extends Component {
                     onCheck={this.onCheck}
                     >
                         <TreeNode title="Clients" key="0-0">
-                            <TreeNode title={id} key="0-0-0" >
+                            <TreeNode title={'Client ID: ' + id} key="0-0-0" >
                                 <TreeNode title='Name' key="Name">
-                                    <TreeNode title="Name" key="Name" />
+                                    <TreeNode title={Name} key="Name" />
                                 </TreeNode>
-                                <TreeNode title="Condition" key="0-0-0-0">
-                                    <TreeNode title="123" key="0-0-0-1" />
+                                <TreeNode title="Condition" key="Condition">
+                                    <TreeNode title={stringCondition} key="Condition" />
                                 </TreeNode>
-                                <TreeNode title="Email" key="0-0-0-0">
-                                    <TreeNode title="123" key="0-0-0-1" />
+                                <TreeNode title="Email" key="Email">
+                                    <TreeNode title={Email} key="Email" />
                                 </TreeNode>
-                                <TreeNode title="Addresses" key="0-0-0-0">
-                                    <TreeNode title="123" key="0-0-0-1" />
+                                <TreeNode title="Addresses" key="Addresses">
+                                    <TreeNode title={Addresses} key="Addresses" />
                                 </TreeNode>
                             </TreeNode>
                         </TreeNode>
