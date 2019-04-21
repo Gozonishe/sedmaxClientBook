@@ -1,4 +1,11 @@
 .tree {
     position: absolute; 
-    left: 5%;
+    left: 2%;
+}
+
+@media (max-width: 1400px){
+    .tree{
+        position: relative;
+        margin-top: 40px;
+    }
 }

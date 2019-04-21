@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ClientEditPage from './components/ClientEditPage/ClientEditPage';
 import ClientListPage from './components/ClientListPage/ClientListPage';
-import jsonData from './clientsData.json'
+import jsonData from './clientsData.json';
+import { setTableDataFromStorage } from './AC/table';
 
 
 class App extends Component {
   componentDidMount() {
-    // тут дергаешь экшен который ложит данные из json в стор
+    this.props.setTableDataFromStorage(jsonData)
   }
 
   render() {
@@ -16,8 +18,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <Route exact path='/' component={MyClientListPage}/>
-            <Route path='/edit_clients' component={ClientEditPage}></Route>
+            <Route exact path='/' component={ClientListPage}/>
+            <Route path='/edit_clients' component={ClientEditPage} />
           </div>
         </Router>
       </div>
@@ -25,10 +27,4 @@ class App extends Component {
   }
 }
 
-const MyClientListPage = (props) => {
-  return (
-    <ClientListPage tableData={jsonData}/>
-  );
-}
-
-export default App;
+export default connect(null, {setTableDataFromStorage}) (App)

@@ -98,7 +98,6 @@ import { connect } from 'react-redux';
         title: 'ID',
         dataIndex: 'id',
         key: 'id',
-        
       }, {
         title: 'Name',
         dataIndex: 'Name',
@@ -199,11 +198,12 @@ import { connect } from 'react-redux';
             components={components}
             rowClassName={() => 'editable-row'}
             bordered
-            dataSource={[this.props.selectedRowData]}
+            dataSource={this.props.selectedRowData}
             columns={columns}
             pagination={pagination}
           />
         </div>
+
       );
     }
   }

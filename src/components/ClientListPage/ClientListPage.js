@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import 'antd/dist/antd.css';
-import { Table } from 'antd';
-import {setSelectedRowData} from '../../AC/table'
 import './ClientListPage.css';
-import {Link} from 'react-router-dom'
+import { Table } from 'antd';
+
+import { setSelectedRowData } from '../../AC/table'
+
 
 class ClientListPage extends React.Component {
   onRowClickHandler = (record) => {
@@ -13,6 +15,10 @@ class ClientListPage extends React.Component {
   }
 
   render() {
+    if (!this.props.tableData) {
+      return null
+    }
+
     const columns = [{
       title: 'ID',
       dataIndex: 'id',
@@ -67,4 +73,8 @@ class ClientListPage extends React.Component {
     );
   }
 }
-export default connect(null, {setSelectedRowData}) (ClientListPage)
+export default connect((state) => {
+  return {
+    tableData: state.storage.storageData,
+  }
+}, {setSelectedRowData}) (ClientListPage)

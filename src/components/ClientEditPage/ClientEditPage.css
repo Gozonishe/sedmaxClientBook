@@ -16,3 +16,12 @@
 .cancelBtn {
     margin-top: 1px;
 }
+
+@media (max-width: 1400px) {
+    .mainContent {
+        display: flex; 
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
