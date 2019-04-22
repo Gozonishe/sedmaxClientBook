@@ -1,5 +1,5 @@
-import {SET_SELECTED_ROW_DATA, REMOVE_SELECTED_ROW_DATA} from '../constants';
-import {SET_TABLE_DATA_FROM_STORAGE} from '../constants';
+import { SET_SELECTED_ROW_DATA, REMOVE_SELECTED_ROW_DATA } from '../constants';
+import { SET_TABLE_DATA_FROM_STORAGE } from '../constants';
 
 export function setSelectedRowData(data) {
     return {

@@ -1,10 +1,10 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import 'antd/dist/antd.css';
-import './ClientListPage.css';
-import { Table } from 'antd';
+import 'antd/dist/antd.css'
+import { Table } from 'antd'
 
+import './ClientListPage.css'
 import { setSelectedRowData } from '../../AC/table'
 
 

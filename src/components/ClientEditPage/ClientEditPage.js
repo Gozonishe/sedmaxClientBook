@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Button } from 'antd';
-import './ClientEditPage.css';
-import ClientTree from '../ClientTree/ClientTree';
-import { Link } from 'react-router-dom';
-import EditableTable from '../example/exampleTable';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Button } from 'antd'
+import { Link } from 'react-router-dom'
+
+import './ClientEditPage.css'
+import ClientTree from '../ClientTree/ClientTree'
+import EditableTable from '../example/exampleTable'
 import { removeSelectedRowData } from '../../AC/table'
 
 class ClientEditPage extends Component {
@@ -13,8 +14,6 @@ class ClientEditPage extends Component {
   }
 
   render() {
-
-
     return ( 
       <div className="ClientEdit" >
         <header>
@@ -24,7 +23,6 @@ class ClientEditPage extends Component {
             <span>
               <ClientTree />
             </span>
-
             <span>
               <EditableTable/>
               <Button className='cancelBtn' type="danger" block onClick={this.onCancelHandler}>

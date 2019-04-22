@@ -1,8 +1,9 @@
-import { createStore, applyMiddleware } from 'redux';
-import reducer from '../reducer';
-import logger from 'redux-logger';
+import { createStore, applyMiddleware } from 'redux'
+import logger from 'redux-logger'
 
-const enchancer = applyMiddleware(logger);
-const store = createStore(reducer, {}, enchancer);
+import reducer from '../reducer'
 
-export default store;
+const enchancer = applyMiddleware(logger)
+const store = createStore(reducer, {}, enchancer)
+
+export default store

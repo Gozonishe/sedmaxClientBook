@@ -1,10 +1,11 @@
-import { Table, Input, Button, Popconfirm, Form, } from 'antd';
-import React, { Component } from 'react';
-import './exampleTable.css';
-import { connect } from 'react-redux';
+import { Table, Input, Popconfirm, Form, } from 'antd'
+import React from 'react'
+import { connect } from 'react-redux'
+
+import './exampleTable.css'
   
-  const FormItem = Form.Item;
-  const EditableContext = React.createContext();
+  const FormItem = Form.Item
+  const EditableContext = React.createContext()
   
   const EditableRow = ({ form, index, ...props }) => (
     <EditableContext.Provider value={form}>

@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import ClientEditPage from './components/ClientEditPage/ClientEditPage';
-import ClientListPage from './components/ClientListPage/ClientListPage';
-import jsonData from './clientsData.json';
-import { setTableDataFromStorage } from './AC/table';
+import ClientEditPage from './components/ClientEditPage/ClientEditPage'
+import ClientListPage from './components/ClientListPage/ClientListPage'
+import jsonData from './clientsData.json'
+import { setTableDataFromStorage } from './AC/table'
 
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
           </div>
         </Router>
       </div>
-    );
+    )
   }
 }
 
