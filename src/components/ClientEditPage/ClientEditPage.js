@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import './ClientEditPage.css'
 import ClientTree from '../ClientTree/ClientTree'
-import EditableTable from '../example/exampleTable'
+import EditableTable from '../EditableTable/EditableTable'
 import { removeSelectedRowData } from '../../AC/table'
 
 class ClientEditPage extends Component {

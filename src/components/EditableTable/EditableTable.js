@@ -2,7 +2,7 @@ import { Table, Input, Popconfirm, Form, } from 'antd'
 import React from 'react'
 import { connect } from 'react-redux'
 
-import './exampleTable.css'
+import './EditableTable.css'
   
   const FormItem = Form.Item
   const EditableContext = React.createContext()
