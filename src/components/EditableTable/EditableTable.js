@@ -110,10 +110,12 @@ import './EditableTable.css'
         dataIndex: 'Condition',
         key: 'Condition',
         align: 'center',
-        render: v => <span><select id="menu1" onSelect="...">
-                      <option value="true">true</option>
-                      <option value="false">false</option>
-                    </select></span>
+        render: v =><span>
+                      <select id="menu1" onSelect="...">
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                      </select>
+                    </span>
       }, {
         title: 'Email',
         dataIndex: 'Email',
@@ -133,7 +135,7 @@ import './EditableTable.css'
         render: (text, record) => (
           this.state.dataSource.length >= 1
             ? (
-              <Popconfirm title="Save Changes?" onConfirm={() => this.handleDelete(record.key)}>
+              <Popconfirm title="Save Changes?" onConfirm={() => this.handleSave(record.key)}>
                 <a href="javascript:;">Save</a>
               </Popconfirm>
             ) : null
@@ -143,17 +145,12 @@ import './EditableTable.css'
       this.state = {
         dataSource: [{
           key: '0',
-          Name: 'Edward King 0',
-          age: '32',
-          address: 'London, Park Lane no. 0',
-        },],
-        count: 2,
-      };
-    }
-  
-    handleDelete = (key) => {
-      const dataSource = [...this.state.dataSource];
-      this.setState({ dataSource: dataSource.filter(item => item.key !== key) });
+          Name: '',
+          Condition: '',
+          Email: '',
+          Address: '',
+        }],
+      }
     }
   
     handleSave = (row) => {
@@ -168,7 +165,6 @@ import './EditableTable.css'
     }
   
     render() {
-      const { dataSource } = this.state;
       const components = {
         body: {
           row: EditableFormRow,
@@ -204,7 +200,6 @@ import './EditableTable.css'
             pagination={pagination}
           />
         </div>
-
       );
     }
   }
@@ -215,4 +210,3 @@ import './EditableTable.css'
     }
   }) (EditableTable);
  
-  
