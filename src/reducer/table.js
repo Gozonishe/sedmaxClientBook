@@ -1,7 +1,7 @@
 import { SET_SELECTED_ROW_DATA, REMOVE_SELECTED_ROW_DATA } from '../constants'
 
 const defaultState = {
-  selectedRowData: [],
+  selectedRowData: []
 }
 
 export default (state = defaultState, action) => {
@@ -10,12 +10,12 @@ export default (state = defaultState, action) => {
     case SET_SELECTED_ROW_DATA:
       return {
         ...state,
-        selectedRowData: payload.data.map ? payload.data : [payload.data],
+        selectedRowData: payload.data.map ? payload.data : [payload.data]
       }
     case REMOVE_SELECTED_ROW_DATA:
       return {
         ...state,
-        selectedRowData: [],
+        selectedRowData: []
       }
     default:
   }

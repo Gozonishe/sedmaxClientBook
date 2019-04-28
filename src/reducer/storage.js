@@ -1,7 +1,7 @@
 import { SET_TABLE_DATA_FROM_STORAGE } from '../constants'
 
 const defaultState = {
-  storageData: undefined,
+  storageData: undefined
 }
 
 export default (state = defaultState, action) => {
@@ -10,7 +10,7 @@ export default (state = defaultState, action) => {
     case SET_TABLE_DATA_FROM_STORAGE:
       return {
         ...state,
-        storageData: payload.data,
+        storageData: payload.data
       }
     default:
   }

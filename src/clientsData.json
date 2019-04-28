@@ -4,34 +4,39 @@
         "Name": "Richard Hendricks",
         "Condition": true,
         "Email": "richard@gmail.com",
-        "Addresses": "pipedpiper@gmail.com, hendricks@gmail.com"
+        "Addresses": "pipedpiper@gmail.com, hendricks@gmail.com",
+        "key": 0
     },
     {
         "id": 2,
         "Name": "Bertram Gilfoyle",
         "Condition": false,
         "Email": "bg@gmail.com",
-        "Addresses": "bertram@gmail.com, gilf@gmail.com"
+        "Addresses": "bertram@gmail.com, gilf@gmail.com",
+        "key": "1"
     },
     {
         "id": 3,
         "Name": "Dinesh Chugtai",
         "Condition": true,
         "Email": "dichu@gmail.com",
-        "Addresses": "dc@gmail.com, dinesh@gmail.com"
+        "Addresses": "dc@gmail.com, dinesh@gmail.com",
+        "key": "2"
     },
     {
         "id": 4,
         "Name": "Monica Hall",
         "Condition": true,
         "Email": "mh@gmail.com",
-        "Addresses": "monicahall@gmail.com, moha@gmail.com"
+        "Addresses": "monicahall@gmail.com, moha@gmail.com",
+        "key": "3"
     },
     {
         "id": 5,
         "Name": "Erlich Bachman",
         "Condition": false,
         "Email": "bachman@gmail.com",
-        "Addresses": "ebrich@gmail.com, eb@gmail.com"
+        "Addresses": "ebrich@gmail.com, eb@gmail.com",
+        "key": "4"
     }
 ]

@@ -7,5 +7,5 @@ import dataTreeReducer from './dataTree'
 export default combineReducers({
   storage: storageReducer,
   table: tableReducer,
-  dataTree: dataTreeReducer,
+  dataTree: dataTreeReducer
 })

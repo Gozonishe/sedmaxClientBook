@@ -3,6 +3,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import './EditableTable.css'
+import { setSelectedRowData } from '../../AC/table'
+import DataJson from '../../clientsData.json'
+
   
   const FormItem = Form.Item
   const EditableContext = React.createContext()
@@ -104,7 +107,8 @@ import './EditableTable.css'
         dataIndex: 'Name',
         key: 'Name',
         editable: true,
-        align: 'center'
+        align: 'center',
+        width: '200px',
       }, {
         title: 'Condition',
         dataIndex: 'Condition',
@@ -122,12 +126,15 @@ import './EditableTable.css'
         key: 'Email',
         editable: true,
         align: 'center',
+        width: '200px',
       }, {
         title: 'Addresses',
         dataIndex: 'Addresses',
         key: 'Addresses',
         editable: true,
         align: 'center',
+        width: '360px',
+        minWidth:'360px'
       }, {
         title: 'Action',
         dataIndex: 'Action',
@@ -135,7 +142,7 @@ import './EditableTable.css'
         render: (text, record) => (
           this.state.dataSource.length >= 1
             ? (
-              <Popconfirm title="Save Changes?" onConfirm={() => this.handleSave(record.key)}>
+              <Popconfirm title="Save Changes?" onConfirm={() => this.save}>
                 <a href="javascript:;">Save</a>
               </Popconfirm>
             ) : null
@@ -144,7 +151,7 @@ import './EditableTable.css'
   
       this.state = {
         dataSource: [{
-          key: '0',
+          key: '',
           Name: '',
           Condition: '',
           Email: '',
@@ -154,14 +161,18 @@ import './EditableTable.css'
     }
   
     handleSave = (row) => {
-      const newData = [...this.state.dataSource];
+      const newData = [...this.props.selectedRowData];
       const index = newData.findIndex(item => row.key === item.key);
       const item = newData[index];
       newData.splice(index, 1, {
         ...item,
         ...row,
       });
-      this.setState({ dataSource: newData });
+      // this.setState({ dataSource: newData });
+      this.dataSource = newData
+
+      this.props.setSelectedRowData(newData)
+      console.log(this.dataSource)
     }
   
     render() {
@@ -208,5 +219,5 @@ import './EditableTable.css'
     return {
         selectedRowData: state.table.selectedRowData,
     }
-  }) (EditableTable);
+  }, {setSelectedRowData}) (EditableTable);
  

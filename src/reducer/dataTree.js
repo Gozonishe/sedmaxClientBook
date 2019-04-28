@@ -1,7 +1,7 @@
 import { ADD_ITEM_ID_TO_TREE_DATA_LIST } from '../constants'
 
 const defaultState = {
-  selectedItemsId: [],
+  selectedItemsId: []
 }
 
 export default (state = defaultState, action) => {
@@ -12,7 +12,7 @@ export default (state = defaultState, action) => {
       console.log([...state.selectedItemsId])
       return {
         ...state,
-        selectedItemsId: [...state.selectedItemsId, payload.data],
+        selectedItemsId: [...state.selectedItemsId, payload.data]
       }
     default:
   }
