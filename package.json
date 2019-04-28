@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint src",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev-server": "json-server -p 8080 clientsData.json"
   },
   "eslintConfig": {
     "extends": "react-app"

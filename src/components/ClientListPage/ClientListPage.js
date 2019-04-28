@@ -29,6 +29,8 @@ class ClientListPage extends React.Component {
       dataIndex: 'Name',
       key: 'Name',
       align: 'center',
+      width: '150px',
+      minWidth: '150px',
       render: text => <Link to={'/edit_clients'}>{text}</Link>,
     }, {
       title: 'Condition',
@@ -41,11 +43,15 @@ class ClientListPage extends React.Component {
       dataIndex: 'Email',
       key: 'Email',
       align: 'center',
+      width: '200px',
+      minWidth: '200px',
     }, {
       title: 'Addresses',
       dataIndex: 'Addresses',
       key: 'Addresses',
       align: 'center',
+      width: '340px',
+      minWidth: '340px',
     }, {
       title: 'Action',
       key: 'action',

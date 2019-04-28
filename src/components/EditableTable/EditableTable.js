@@ -1,9 +1,10 @@
 import { Table, Input, Popconfirm, Form, } from 'antd'
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import './EditableTable.css'
-import { setSelectedRowData } from '../../AC/table'
+import { setSelectedRowData, setTableDataFromStorage } from '../../AC/table'
 import DataJson from '../../clientsData.json'
 
   
@@ -142,9 +143,10 @@ import DataJson from '../../clientsData.json'
         render: (text, record) => (
           this.state.dataSource.length >= 1
             ? (
-              <Popconfirm title="Save Changes?" onConfirm={() => this.save}>
-                <a href="javascript:;">Save</a>
-              </Popconfirm>
+              // <Popconfirm title="Save Changes?" onConfirm={() => this.save} onConfirm={() => window.location = '/'}>
+              //   <a href="javascript:;">Save</a>
+              // </Popconfirm>
+              <Link to = '/'>save</Link>
             ) : null
         ),
       }];
@@ -159,7 +161,7 @@ import DataJson from '../../clientsData.json'
         }],
       }
     }
-  
+ 
     handleSave = (row) => {
       const newData = [...this.props.selectedRowData];
       const index = newData.findIndex(item => row.key === item.key);
@@ -172,7 +174,9 @@ import DataJson from '../../clientsData.json'
       this.dataSource = newData
 
       this.props.setSelectedRowData(newData)
-      console.log(this.dataSource)
+      this.props.setTableDataFromStorage(newData)
+
+      console.log(this.props.tableData)
     }
   
     render() {
@@ -217,7 +221,8 @@ import DataJson from '../../clientsData.json'
   
   export default connect((state) => {
     return {
+        tableData: state.storage.storageData,
         selectedRowData: state.table.selectedRowData,
     }
-  }, {setSelectedRowData}) (EditableTable);
+  }, {setSelectedRowData, setTableDataFromStorage}) (EditableTable);
  
