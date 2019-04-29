@@ -1,11 +1,10 @@
-import { Table, Input, Popconfirm, Form, } from 'antd'
+import { Table, Input, Form, Button } from 'antd'
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import './EditableTable.css'
 import { setSelectedRowData, setTableDataFromStorage } from '../../AC/table'
-import DataJson from '../../clientsData.json'
 
   
   const FormItem = Form.Item
@@ -143,10 +142,9 @@ import DataJson from '../../clientsData.json'
         render: (text, record) => (
           this.state.dataSource.length >= 1
             ? (
-              // <Popconfirm title="Save Changes?" onConfirm={() => this.save} onConfirm={() => window.location = '/'}>
-              //   <a href="javascript:;">Save</a>
-              // </Popconfirm>
+              <Button onClick = {this.handleSave}>
               <Link to = '/'>save</Link>
+              </Button>
             ) : null
         ),
       }];
@@ -170,13 +168,30 @@ import DataJson from '../../clientsData.json'
         ...item,
         ...row,
       });
-      // this.setState({ dataSource: newData });
       this.dataSource = newData
 
       this.props.setSelectedRowData(newData)
-      this.props.setTableDataFromStorage(newData)
 
-      console.log(this.props.tableData)
+      const newStorageData = this.props.tableData.map(rowData => {
+          if (rowData.id === newData[0].id) {
+            return newData[0];
+          }
+          if (rowData.id === newData[1].id) {
+            return newData[1];
+          }
+          if (rowData.id === newData[2].id) {
+            return newData[2];
+          }
+          if (rowData.id === newData[3].id) {
+            return newData[3];
+          }
+          if (rowData.id === newData[4].id) {
+            return newData[4];
+          }
+          return rowData
+        }
+      )
+      this.props.setTableDataFromStorage(newStorageData)
     }
   
     render() {

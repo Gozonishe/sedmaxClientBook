@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'antd'
-import { Link } from 'react-router-dom'
 
 import './ClientEditPage.css'
 import ClientTree from '../ClientTree/ClientTree'
@@ -26,7 +25,7 @@ class ClientEditPage extends Component {
             <span>
               <EditableTable/>
               <Button className='cancelBtn' type="danger" block onClick={this.onCancelHandler}>
-                  <Link to={'/'}>Cancel</Link>
+                  <a href='/'>Discard changes</a>
               </Button>
             </span>
           </div>  
